@@ -8,7 +8,10 @@ public:
 	Line(Surface& s1_, Surface& s2_);
 	Line(Point& pt1, Point& pt2);
 	Line() {};
-private:
+	virtual void upd(Surface& s1_, Surface& s2_);
+	virtual void upd(Point& pt1, Point& pt2);
+
+protected:
 	Surface s1;//两个面去表示直线方程
 	Surface s2;
 };
@@ -19,4 +22,8 @@ private:
 	Point meshPt;//网格点，初始时是单位网格点，输出时为拟合点
 public:
 	zoneLine(Point& basept, Point& meshpt);
+	zoneLine() {};
+	void upd(Point& basept, Point& meshpt);
+	Point startpt() { return basePt; };
+	Point endpt() { return meshPt; };
 };

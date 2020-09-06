@@ -24,4 +24,6 @@ public:
 	meshAdd(int add1, int add2, int add3, int add4);
 	void upd(int add1, int add2, int add3);
 	void upd(int add1, int add2, int add3, int add4);
+	int addr(int i) { return add[i]; };
+	int size() { return add.size(); };
 };

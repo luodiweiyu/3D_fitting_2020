@@ -1,6 +1,15 @@
 #include"Line.h"
 Line::Line(Surface& s1_, Surface& s2_)
 {
+	upd(s1_, s2_);
+}
+Line::Line(Point& pt1, Point& pt2)
+{
+	upd(pt1, pt2);
+}
+
+void Line::upd(Surface& s1_, Surface& s2_)
+{
 	//根据两个平面初始化直线；
 	//可能存在两平面平行或者系数为零的情况，需要特殊考虑；
 	if (s2_.a() * s2_.b() * s2_.c() != 0)
@@ -60,7 +69,7 @@ Line::Line(Surface& s1_, Surface& s2_)
 	}
 
 }
-Line::Line(Point& pt1, Point& pt2)
+void Line::upd(Point& pt1, Point& pt2)
 {
 	//根据两点生成一条直线；
 	//可能存在两点的某个坐标相等的情况；
@@ -89,10 +98,14 @@ Line::Line(Point& pt1, Point& pt2)
 	}
 
 }
-
 //显式调用基类构造函数
-zoneLine::zoneLine(Point& basept, Point& meshpt):Line(basept,meshpt)
+zoneLine::zoneLine(Point& basept, Point& meshpt)
 {
+	upd(basept, meshpt);
+}
+void zoneLine::upd(Point& basept, Point& meshpt)
+{
+	Line::upd(basept, meshpt);
 	basePt = basept;
 	basePt = meshpt;
 }
