@@ -1,5 +1,5 @@
 !散点数据文件名
-scatter.dat
+tuoqiu1.facet
 !网格节点数据文件名
 meshPoint.dat
 !三角形网格节点位置信息文件名
@@ -7,6 +7,6 @@ meshAdd3.dat
 !四边形网格节点位置信息文件名
 meshAdd4.dat
 !单位球心坐标
-0 0 0
+0.1 0 0
 !线光源轴线终点
-1 0 0
+30 0 0

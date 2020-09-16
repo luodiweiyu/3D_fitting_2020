@@ -36,6 +36,9 @@
     <ClCompile Include="Geometry\mesh.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Utility\Math.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Geometry\Line.h">
@@ -54,6 +57,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Geometry\mesh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\Math.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

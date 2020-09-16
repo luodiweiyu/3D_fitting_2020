@@ -1,4 +1,6 @@
 #include"Line.h"
+#include"../Utility/Math.h"
+#include<fstream>
 Line::Line(Surface& s1_, Surface& s2_)
 {
 	upd(s1_, s2_);
@@ -99,13 +101,27 @@ void Line::upd(Point& pt1, Point& pt2)
 
 }
 //显式调用基类构造函数
-zoneLine::zoneLine(Point& basept, Point& meshpt)
+zoneLine::zoneLine(Point& start, Point& end)
 {
-	upd(basept, meshpt);
+	upd(start, end);
 }
-void zoneLine::upd(Point& basept, Point& meshpt)
+void zoneLine::upd(Point& start, Point& end)
 {
-	Line::upd(basept, meshpt);
-	basePt = basept;
-	basePt = meshpt;
+	Line::upd(start, end);
+	startpt = start;
+	endpt = end;
+}
+
+void zoneLine::chgFittingPoint(Point& pt)
+{
+
+	if (distance(pt, *this) < distance(fittingpt,*this))
+		fittingpt =pt;
+}
+
+void zoneLine::output_fittingpt(string filename)
+{
+	std::ofstream fout(filename,ios::app);
+	fout << fittingpt.x() << "  " << fittingpt.y() << "  " << fittingpt.z() << endl;
+	fout.close();
 }

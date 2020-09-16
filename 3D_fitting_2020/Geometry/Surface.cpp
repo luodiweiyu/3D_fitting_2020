@@ -8,6 +8,16 @@ Surface::Surface(double a, double b, double c, double d)
 	cof.resize(4);
 	updateCof(a, b, c, d);
 }
+Surface::Surface(const Point& pt1, const Point& pt2, const Point& pt3)
+{
+	cof.resize(4);
+	getSurface(pt1.x(), pt1.y(), pt1.z(), pt2.x(), pt2.y(), pt2.z(), pt3.x(), pt3.y(), pt3.z());
+}
+Surface::Surface(const double x1, const double y1, const double z1, const double x2, const double y2, const double z2, const double x3, const double y3, const double z3)
+{
+	cof.resize(4);
+	getSurface(x1, y1, z1, x2, y2, z2, x3, y3, z3);
+}
 void Surface::updateCof(double a, double b, double c, double d)
 {
 	cof[0] = a;
@@ -18,7 +28,6 @@ void Surface::updateCof(double a, double b, double c, double d)
 Surface::~Surface()
 {
 }
-
 
 void Surface::getSurface(double x1, double y1, double z1, double x2, double y2, double z2, double x3, double y3, double z3)
 {
@@ -59,4 +68,10 @@ void Surface::getSurface(double x1, double y1, double z1, double x2, double y2, 
 		cof[2] = nz;
 		cof[3] = -(nx * x1 + ny * y1 + nz * z1);
 	}
+}
+
+void Surface::getSurface(const Point& pt1, const Point& pt2, const Point& pt3)
+{
+	getSurface(pt1.x(), pt1.y(), pt1.z(), pt2.x(), pt2.y(), pt2.z(), pt3.x(), pt3.y(), pt3.z());
+
 }
